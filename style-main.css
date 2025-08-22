@@ -1,0 +1,302 @@
+@import url("https://fonts.googleapis.com/css2?family=Bungee&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap");
+
+/* Reset rápido */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Roboto", sans-serif;
+}
+
+body {
+  height: 100vh; /* ocupa toda a altura da tela */
+  margin: 0;
+  background: linear-gradient(to bottom, #000000, #808080);
+}
+
+.nav-icons {
+  display: flex;
+  gap: 15px;
+  margin-top: 1rem;
+}
+
+.nav-icons img {
+  width: 42px;
+  cursor: pointer;
+}
+
+.logo img {
+  width: 200px;
+  cursor: pointer;
+}
+
+.header {
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: space-between; /* mantém logo à esquerda e menu hamburger à direita */
+  align-items: center;
+  padding: 15px 30px;
+  background: transparent;
+  z-index: 1000;
+  font-family: "Arial", sans-serif;
+}
+
+.nav {
+  flex: 1; /* ocupa o espaço central */
+}
+
+.nav ul {
+  list-style: none;
+  display: flex;
+  justify-content: center; /* centraliza os itens horizontalmente */
+  align-items: center;
+  gap: 2rem;
+}
+
+.nav a {
+  text-decoration: none;
+  color: #ccc;
+  font-weight: bold;
+  transition: color 0.3s;
+  letter-spacing: 2px;
+}
+
+.nav a:hover {
+  color: #fff;
+}
+
+.container {
+  display: flex;
+  align-items: center; /* centraliza verticalmente */
+  justify-content: center; /* centraliza horizontalmente */
+  gap: 30px; /* menos espaço entre imagem e texto */
+  min-height: 100vh;
+  padding: 20px;
+}
+
+.container img {
+  max-width: 450px; /* reduz tamanho da imagem */
+  height: auto;
+}
+
+.pc-gamer-image {
+  max-width: 280px;
+  height: auto;
+  transform: rotate(-3deg); /* leve inclinação */
+  animation: flutuar 3s ease-in-out infinite; /* só flutuação */
+}
+
+/* Efeito de flutuação na imagem */
+@keyframes flutuar {
+  0%,
+  100% {
+    transform: translateY(0) rotate(-3deg);
+  }
+  50% {
+    transform: translateY(-15px) rotate(-3deg);
+  }
+}
+
+.text-content {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  max-width: 300px; /* evita que o texto ocupe largura demais */
+}
+
+.text-content p {
+  font-size: 2.5rem; /* ZEUS menor */
+  font-weight: bold;
+  color: #ffffff; /* você pode trocar a cor */
+  margin: 0;
+  letter-spacing: 2px;
+}
+
+.text-content h1 {
+  color: #ccc;
+  font-size: 1rem; /* descrição menor */
+  line-height: 1.4;
+  margin: 0;
+}
+
+/* Botão de compra */
+.btn-comprar {
+  display: inline-block;
+  padding: 12px 30px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #fff;
+  background: #111; /* fundo escuro para destacar RGB */
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  text-decoration: none;
+  transition: transform 0.3s ease;
+  animation: brilhoRGB 6s linear infinite; /* brilho gamer */
+  text-transform: uppercase;
+}
+
+.btn-comprar:hover {
+  transform: scale(1.1); /* cresce no hover */
+}
+
+/* Brilho RGB no botão */
+@keyframes brilhoRGB {
+  0% {
+    box-shadow: 0 0 10px #ff0044;
+    background: #ff0044;
+  }
+  25% {
+    box-shadow: 0 0 15px #00ffcc;
+    background: #00ffcc;
+  }
+  50% {
+    box-shadow: 0 0 20px #00ff44;
+    background: #00ff44;
+  }
+  75% {
+    box-shadow: 0 0 15px #4400ff;
+    background: #4400ff;
+  }
+  100% {
+    box-shadow: 0 0 10px #ff0044;
+    background: #ff0044;
+  }
+}
+
+/* Menu hamburguer */
+.menu-hamburguer {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+}
+
+.menu-hamburguer span {
+  width: 25px;
+  height: 3px;
+  background: white;
+  border-radius: 2px;
+  transition: all 0.3s;
+}
+
+/* ===================== */
+/* MENU HAMBURGUER */
+/* ===================== */
+.menu-hamburguer {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+  z-index: 1100;
+}
+
+.menu-hamburguer span {
+  width: 28px;
+  height: 3px;
+  background: #fff;
+  border-radius: 5px;
+  transition: all 0.3s ease;
+}
+
+/* Animação quando ativo */
+.menu-hamburguer.active span:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+.menu-hamburguer.active span:nth-child(2) {
+  opacity: 0;
+}
+.menu-hamburguer.active span:nth-child(3) {
+  transform: rotate(-45deg) translate(6px, -6px);
+}
+
+/* ===================== */
+/* NAV MOBILE */
+/* ===================== */
+@media (max-width: 768px) {
+  .nav {
+    position: fixed;
+    top: 0;
+    right: -250px; /* escondido */
+    height: 100vh;
+    width: 250px;
+    background: rgba(0, 0, 0, 0.95);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: right 0.4s ease;
+  }
+
+  .nav ul {
+    flex-direction: column; /* empilha os links */
+    gap: 2rem;
+  }
+
+  .nav.active {
+    right: 0; /* aparece deslizando */
+  }
+}
+
+/* ===================== */
+/* RESPONSIVIDADE */
+/* ===================== */
+
+/* Tablet */
+@media (max-width: 992px) {
+  .container {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .pc-gamer-image {
+    max-width: 350px;
+  }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  /* Nav lateral */
+  .nav {
+    position: fixed;
+    top: 0;
+    right: -250px; /* escondido */
+    height: 100vh;
+    width: 250px;
+    background: rgba(0, 0, 0, 0.95);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: right 0.4s ease;
+  }
+
+  .nav ul {
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .nav.active {
+    right: 0; /* aparece */
+  }
+
+  /* Menu hamburguer visível */
+  .menu-hamburguer {
+    display: flex;
+  }
+
+  /* Esconde ícones */
+  .nav-icons {
+    display: none;
+  }
+
+  /* Ajusta container */
+  .container {
+    padding: 2rem;
+  }
+
+  .text-content h1 {
+    font-size: 1rem;
+  }
+}

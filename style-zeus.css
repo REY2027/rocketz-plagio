@@ -1,0 +1,209 @@
+@import url("https://fonts.googleapis.com/css2?family=Bungee&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap");
+
+/* Reset rápido */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Roboto", sans-serif;
+}
+
+body {
+  height: 100vh; /* ocupa toda a altura da tela */
+  margin: 0;
+  background: linear-gradient(to bottom, #000000, #808080);
+}
+
+.icons img {
+  gap: 25px;
+  width: 40px;
+  cursor: pointer;
+}
+
+.logo img {
+  width: 200px;
+  cursor: pointer;
+}
+
+.header {
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: space-between; /* mantém logo à esquerda e menu hamburger à direita */
+  align-items: center;
+  padding: 15px 30px;
+  background: transparent;
+  z-index: 1000;
+  font-family: "Arial", sans-serif;
+}
+
+.nav {
+  flex: 1; /* ocupa o espaço central */
+}
+
+.nav ul {
+  list-style: none;
+  display: flex;
+  justify-content: center; /* centraliza os itens horizontalmente */
+  gap: 25px;
+}
+
+.nav a {
+  text-decoration: none;
+  color: #ccc;
+  font-weight: 500;
+  transition: color 0.3s;
+  letter-spacing: 2px;
+}
+
+.nav a:hover {
+  color: #fff;
+}
+
+.container {
+  display: flex;
+  align-items: center; /* centraliza verticalmente */
+  justify-content: center; /* centraliza horizontalmente */
+  gap: 30px; /* menos espaço entre imagem e texto */
+  min-height: 100vh;
+  padding: 20px;
+}
+
+.container img {
+  max-width: 450px; /* reduz tamanho da imagem */
+  height: auto;
+}
+
+.pc-gamer-image {
+  max-width: 280px;
+  height: auto;
+  transform: rotate(-3deg); /* leve inclinação */
+  animation: flutuar 3s ease-in-out infinite; /* só flutuação */
+}
+
+/* Efeito de flutuação na imagem */
+@keyframes flutuar {
+  0%,
+  100% {
+    transform: translateY(0) rotate(-3deg);
+  }
+  50% {
+    transform: translateY(-15px) rotate(-3deg);
+  }
+}
+
+.text-content {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  max-width: 300px; /* evita que o texto ocupe largura demais */
+}
+
+.text-content p {
+  font-size: 2.5rem; /* ZEUS menor */
+  font-weight: bold;
+  color: #ffffff; /* você pode trocar a cor */
+  margin: 0;
+  letter-spacing: 2px;
+}
+
+.text-content h1 {
+  color: #ccc;
+  font-size: 1rem; /* descrição menor */
+  line-height: 1.4;
+  margin: 0;
+}
+
+/* Botão de compra */
+.btn-comprar {
+  display: inline-block;
+  padding: 12px 30px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #fff;
+  background: #111; /* fundo escuro para destacar RGB */
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  text-decoration: none;
+  transition: transform 0.3s ease;
+  animation: brilhoRGB 6s linear infinite; /* brilho gamer */
+  text-transform: uppercase;
+}
+
+.btn-comprar:hover {
+  transform: scale(1.1); /* cresce no hover */
+}
+
+/* Brilho RGB no botão */
+@keyframes brilhoRGB {
+  0% {
+    box-shadow: 0 0 10px #ff0044;
+    background: #ff0044;
+  }
+  25% {
+    box-shadow: 0 0 15px #00ffcc;
+    background: #00ffcc;
+  }
+  50% {
+    box-shadow: 0 0 20px #00ff44;
+    background: #00ff44;
+  }
+  75% {
+    box-shadow: 0 0 15px #4400ff;
+    background: #4400ff;
+  }
+  100% {
+    box-shadow: 0 0 10px #ff0044;
+    background: #ff0044;
+  }
+}
+
+/* Menu hamburguer */
+.menu-hamburguer {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+}
+
+.menu-hamburguer span {
+  width: 25px;
+  height: 3px;
+  background: white;
+  border-radius: 2px;
+  transition: all 0.3s;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .nav {
+    position: absolute;
+    top: 65px;
+    right: 0;
+    background: rgba(0, 0, 0, 0.85);
+    width: 200px;
+    height: calc(100vh - 65px);
+    transform: translateX(100%);
+    transition: transform 0.3s;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+  }
+
+  .nav.active {
+    transform: translateX(0);
+  }
+
+  .menu-hamburguer {
+    display: flex;
+  }
+
+  .nav ul {
+    flex-direction: column;
+    gap: 20px;
+    justify-content: flex-start; /* no mobile, lista começa do topo */
+  }
+}
